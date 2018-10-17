@@ -1,11 +1,12 @@
-Package: com.pwn20wnd.noplsocsp
-Name: NoPlsOCSP
+Package: jp.geek.nsmr0604.cydia.noplsocsp
+Name: NoPlsOCSP with IPv6
 Pre-Depends: dpkg (>= 1.14.25-8)
 Depends: bash, cy+cpu.arm64
-Version: 1.0
+Conflicts:om.pwn20wnd.noplsocsp
+Version: 1.1
 Architecture: iphoneos-arm
-Description: Blocks the Apple OCSP servers to prevent the certificates from getting revoked.
-Maintainer: Pwn20wnd <pwn20wndstuff@gmail.com>
-Author: Pwn20wnd <pwn20wndstuff@gmail.com>
+Description: Blocks the Apple OCSP servers (with IPv6) to prevent the certificates from getting revoked.
+Maintainer: nsmr0604 <nsmr0604@users.noreply.github.com>
+Author: nsmr0604 <nsmr0604@users.noreply.github.com>
 Section: System
 Tag: role::hacker
