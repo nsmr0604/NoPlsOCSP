@@ -3,7 +3,7 @@
 
 void blockAppleOCSPServer(void) {
     NSString *hostsFile = [NSString stringWithContentsOfFile:@"/etc/hosts" encoding:NSUTF8StringEncoding error:nil];
-    if ([hostsFile rangeOfString:@"\n127.0.0.1    ocsp.apple.com\n"].location == NSNotFound && [hostsFile rangeOfString:@"\n127.0.0.1 ocsp.apple.com\n"].location == NSNotFound){
+    if ([hostsFile rangeOfString:@"\n127.0.0.1  ocsp.apple.com\n"].location == NSNotFound && [hostsFile rangeOfString:@"\n127.0.0.1 ocsp.apple.com\n"].location == NSNotFound){
         FILE *file = fopen("/etc/hosts","a");
         fprintf(file, "127.0.0.1    ocsp.apple.com\n");
         fclose(file);
@@ -11,6 +11,15 @@ void blockAppleOCSPServer(void) {
         run("killall -9 mDNSResponder");
         
         NSLog(@"Apple OCSP server blocked successfully");
+    }
+    if ([hostsFile rangeOfString:@"\n::1    ocsp.apple.com\n"].location == NSNotFound && [hostsFile rangeOfString:@"\n::1   ocsp.apple.com\n"].location == NSNotFound){
+        FILE *file = fopen("/etc/hosts","a");
+        fprintf(file, "::1  ocsp.apple.com\n");
+        fclose(file);
+        
+        run("killall -9 mDNSResponder");
+        
+        NSLog(@"Apple OCSP (IPv6) server blocked successfully");
     }
 }
 
