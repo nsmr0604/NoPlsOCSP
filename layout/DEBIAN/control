@@ -2,7 +2,7 @@ Package: jp.geek.nsmr0604.cydia.noplsocsp
 Name: NoPlsOCSP with IPv6
 Pre-Depends: dpkg (>= 1.14.25-8)
 Depends: bash, cy+cpu.arm64
-Conflicts:om.pwn20wnd.noplsocsp
+Conflicts:com.pwn20wnd.noplsocsp
 Version: 1.1
 Architecture: iphoneos-arm
 Description: Blocks the Apple OCSP servers (with IPv6) to prevent the certificates from getting revoked.
